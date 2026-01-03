@@ -150,10 +150,8 @@ export function ProductsPage() {
       {/* Header */}
       <section className='bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] text-white py-16'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <h1 className='text-4xl lg:text-5xl mb-4'>Our Products</h1>
-          <p className='text-xl text-blue-100'>
-            Browse our complete range of security cameras and systems
-          </p>
+          <h1 className='text-4xl lg:text-5xl mb-4'>Бидний бүтээгдэхүүн</h1>
+          
         </div>
       </section>
 
@@ -171,7 +169,7 @@ export function ProductsPage() {
 
             {/* Sidebar Filter */}
             <div
-              className={`${
+              className={`{
                 filterOpen ? "block" : "hidden"
               } lg:block lg:w-64 shrink-0`}>
               <div className='bg-white rounded-xl p-6 shadow-md sticky top-24'>
@@ -189,12 +187,12 @@ export function ProductsPage() {
                   <h4 className='text-sm text-gray-900 mb-3'>Type</h4>
                   <div className='space-y-2'>
                     {[
-                      {value: "all", label: "All Products"},
-                      {value: "indoor", label: "Indoor"},
-                      {value: "outdoor", label: "Outdoor"},
-                      {value: "wireless", label: "Wireless"},
-                      {value: "system", label: "Complete Systems"},
-                      {value: "accessory", label: "Accessories"},
+                      {value: "all", label: "Бүх Бүтээгдэхүүн"},
+                      {value: "indoor", label: "Дотор"},
+                      {value: "outdoor", label: "Гадаа"},
+                      {value: "wireless", label: "Утасгүй"},
+                      {value: "system", label: "Бүтэн Систем"},
+                      {value: "accessory", label: "Хэрэгслийн"},
                     ].map((type) => (
                       <label
                         key={type.value}
@@ -221,10 +219,10 @@ export function ProductsPage() {
                   <div className='space-y-2'>
                     {[
                       {value: "all", label: "All Prices"},
-                      {value: "under200", label: "Under $200"},
-                      {value: "200-500", label: "$200 - $500"},
-                      {value: "500-1000", label: "$500 - $1,000"},
-                      {value: "over1000", label: "Over $1,000"},
+                      {value: "under200", label: "Under 200"},
+                      {value: "200-500", label: "200 - 500"},
+                      {value: "500-1000", label: "500 - 1,000"},
+                      {value: "over1000", label: "Over 1,000"},
                     ].map((range) => (
                       <label
                         key={range.value}
@@ -284,11 +282,11 @@ export function ProductsPage() {
                       </p>
                       <div className='flex items-center justify-between'>
                         <span className='text-2xl text-[#1e3a8a]'>
-                          ${product.price}
+                          {product.price}
                         </span>
                         <button className='bg-[#1e3a8a] text-white px-4 py-2 rounded-lg hover:bg-[#1e40af] transition-colors flex items-center gap-2'>
                           <ShoppingCart className='h-4 w-4' />
-                          Add to Cart
+                          Худалдаж авах
                         </button>
                       </div>
                     </div>

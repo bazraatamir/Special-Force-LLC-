@@ -12,16 +12,13 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Company Info */}
           <div className="col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="bg-white rounded-lg p-2">
-                <Shield className="h-6 w-6 text-[#1e3a8a]" />
+              <div className=" rounded-lg p-2">
+                <img src="/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="" />
               </div>
-              <div className="text-white">
-                <div>SecureVision</div>
-                <div className="text-xs text-gray-400">Security Solutions</div>
-              </div>
+              
             </div>
             <p className="text-sm text-gray-400">
-              Professional security camera installation and sales. Reliable, fast, and affordable security solutions for homes and businesses.
+              Мэргэжлийн хяналтын камерын суурилуулалт ба худалдаа. Гэр ахуй, бизнесийн зориулалттай найдвартай, хурдан, боломжийн үнэтэй аюулгүй байдлын шийдлүүд.
             </p>
           </div>
 
@@ -29,7 +26,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <h3 className="text-white mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['Home', 'About Us', 'Services', 'Products', 'Contact'].map((item, index) => (
+              {['Нүүр', 'Бидний тухай', 'Үйлчилгээ', 'Бүтээгдэхүүн', 'Холбоо барих'].map((item, index) => (
                 <li key={index}>
                   <button
                     onClick={() => onNavigate(item.toLowerCase().replace(' ', ''))}
@@ -44,13 +41,13 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Services */}
           <div>
-            <h3 className="text-white mb-4">Our Services</h3>
+            <h3 className="text-white mb-4">Бидний Үйлчилгээ</h3>
             <ul className="space-y-2 text-sm">
-              <li>Camera Installation</li>
-              <li>System Maintenance</li>
-              <li>24/7 Monitoring</li>
-              <li>Security Consultation</li>
-              <li>System Upgrades</li>
+              <li>Камерын суурилуулалт</li>
+              <li>Системийн ажиллагаа</li>
+              <li>24/7 хяналт</li>
+              <li>Аюулгүй байдлын санал болгох</li>
+              <li>Системийн шинэчлэлт</li>
             </ul>
           </div>
 
@@ -61,7 +58,7 @@ export function Footer({ onNavigate }: FooterProps) {
               <li className="flex items-start gap-3 text-sm">
                 <Phone className="h-4 w-4 mt-0.5 shrink-0" />
                 <div>
-                  <div>+1 (555) 123-4567</div>
+                  <div>+976 (555) 123-4567</div>
                   <div>+1 (555) 987-6543</div>
                 </div>
               </li>
