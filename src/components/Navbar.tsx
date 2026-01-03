@@ -26,7 +26,7 @@ export function Navbar({currentPage, onNavigate}: NavbarProps) {
             className='flex items-center gap-3 cursor-pointer'
             onClick={() => onNavigate("home")}>
             <div className='rounded-lg p-2' style={{width:"25%"}}>
-              <img src="./public/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="" className="w-10 h-10 object-contain" style={{objectFit:"contain", width:"100%", height:"100%"}} />
+              <img src="/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="" className="w-10 h-10 object-contain" style={{objectFit:"contain", width:"100%", height:"100%"}} />
             </div>
            
           </div>

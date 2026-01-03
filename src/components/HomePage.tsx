@@ -91,7 +91,7 @@ export function HomePage({onNavigate}: HomePageProps) {
   return (
     <div className='pt-20'>
       {/* Hero Section */}
-      <section className='  bg-cover bg-center text-white' style={{background:"url(./public/2.png)",backgroundSize:"cover", backgroundPosition:"center"}}>
+      <section className='  bg-cover bg-center text-white' style={{background:"url(/2.png)",backgroundSize:"cover", backgroundPosition:"center"}}>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28'>
           <div className='grid md:grid-cols-3  gap-12 items-center' style={{height:"70vh" }}>
             <div style={{gridColumn:"1/3"}}>
