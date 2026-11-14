@@ -27,57 +27,93 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
   const products: Product[] = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      title: "Хяналтын камер",
-      description: "Дотор, гадна орчны IP болон аналог камер, NVR/DVR бичлэгийн төхөөрөмж. Гар утсаар алсаас хянах боломжтой.",
+      image: "/products/camera-bullet.webp",
+      title: "Гадна орчны цилиндр камер",
+      description: "Барилгын гадна талд суурилуулах ус, тоосны хамгаалалттай камер. Инфра улаан гэрэлтүүлэгтэй тул шөнө ч бичлэг хийнэ.",
       price: null,
       type: "camera",
-      category: "Камер",
+      category: "Хяналтын камер",
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      title: "Хулгайн дохиолол",
-      description: "Хөдөлгөөн мэдрэгч, хаалга цонхны мэдрэгч, сирентэй дохиоллын систем. Төв пульттэй холбож 24/7 хянуулна.",
+      image: "/products/camera-dome.webp",
+      title: "Дотор орчны бөмбөгөр камер",
+      description: "Таазанд суурилуулах авсаархан камер. Оффис, дэлгүүр, агуулах, коридорт тохиромжтой.",
       price: null,
-      type: "alarm",
-      category: "Дохиолол",
+      type: "camera",
+      category: "Хяналтын камер",
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      title: "Галын дохиолол",
-      description: "Утаа, дулаан мэдрэгч, галын дохиоллын самбар, гар дуудлагын товчлуур. Барилгын галын аюулгүй байдлын шаардлагад нийцүүлэн суурилуулна.",
+      image: "/products/pima-keypad.webp",
+      title: "PIMA KLR500 удирдлагын самбар",
+      description: "PIMA FORCE цувралын хулгайн дохиоллын график LCD дэлгэцтэй (128×64), арын гэрэлтэй удирдлагын самбар. Дохиоллыг асаах, унтраах, төлөвийг харах.",
       price: null,
       type: "alarm",
-      category: "Дохиолол",
+      category: "Хулгайн дохиолол",
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1762953007649-8ea70115059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      title: "Дохиоллын станц",
-      description: "Обьектуудын дохиоллыг нэг дор хүлээн авч бүртгэх төв пульт, хяналтын станцын тоног төхөөрөмж.",
+      image: "/products/panic-button.webp",
+      title: "Яаралтай дуудлагын товч",
+      description: "Ширээ, лангууны доор нууцаар суурилуулах товч. Дарахад төв пульт руу шууд дохио очиж шуурхай бүлэг дуудагдана.",
       price: null,
       type: "alarm",
-      category: "Дохиолол",
+      category: "Хулгайн дохиолол",
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      title: "Домофон систем",
-      description: "Орон сууц, оффисын видео болон аудио домофон, хаалганы удирдлагын систем.",
+      image: "/products/ir-beam.webp",
+      title: "Периметрийн инфра улаан туяаны мэдрэгч",
+      description: "Хашаа, хаалганы дагуу үл үзэгдэх инфра улаан туяа үүсгэж, туяаг таслан нэвтрэхийг илрүүлнэ.",
       price: null,
-      type: "communication",
-      category: "Холбоо",
+      type: "alarm",
+      category: "Хулгайн дохиолол",
     },
     {
       id: 6,
-      image: "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      title: "Хурал болон зарлан мэдээлэх систем",
-      description: "Хурлын танхимын микрофон, чанга яригч, байгууллагын зарлан мэдээлэх, дуут мэдээллийн систем.",
+      image: "/products/fire-panel.webp",
+      title: "Галын дохиоллын удирдлагын самбар",
+      description: "Утаа, дулааны мэдрэгч, гар дуудлагын товчоос ирэх дохиог хүлээн авч, сирен ажиллуулан бүртгэл хөтлөх төв самбар. Принтертэй.",
       price: null,
-      type: "communication",
-      category: "Холбоо",
+      type: "fire",
+      category: "Галын дохиолол",
+    },
+    {
+      id: 7,
+      image: "/products/fire-repeater.webp",
+      title: "Галын дохиоллын алсын дэлгэц",
+      description: "Үндсэн самбараас өөр байранд (харуулын байр, хүлээн авах) системийн төлөвийг харуулах нэмэлт дэлгэц.",
+      price: null,
+      type: "fire",
+      category: "Галын дохиолол",
+    },
+    {
+      id: 8,
+      image: "/products/smoke-detector.webp",
+      title: "Утааны мэдрэгч",
+      description: "Таазанд суурилуулж утаа илрүүлэхэд галын дохиоллын самбар руу шууд дохио өгнө.",
+      price: null,
+      type: "fire",
+      category: "Галын дохиолол",
+    },
+    {
+      id: 9,
+      image: "/products/fire-callpoint.webp",
+      title: "Гар дуудлагын товч, гэрэлт сирен",
+      description: "Гал гарсан үед гараар дарж дохио өгөх товч, дуу болон гэрлээр сэрэмжлүүлэх сирентэй.",
+      price: null,
+      type: "fire",
+      category: "Галын дохиолол",
+    },
+    {
+      id: 10,
+      image: "/products/pa-speaker.webp",
+      title: "Таазны чанга яригч",
+      description: "Зарлан мэдээлэх системийн таазанд суулгах чанга яригч. Яаралтай мэдээлэл, зарлал, арын хөгжим дамжуулна.",
+      price: null,
+      type: "sound",
+      category: "Зарлан мэдээлэх",
     },
   ];
 
@@ -146,8 +182,9 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
                     {[
                       {value: "all", label: "Бүх бүтээгдэхүүн"},
                       {value: "camera", label: "Хяналтын камер"},
-                      {value: "alarm", label: "Дохиолол"},
-                      {value: "communication", label: "Домофон, зарлан мэдээлэх"},
+                      {value: "alarm", label: "Хулгайн дохиолол"},
+                      {value: "fire", label: "Галын дохиолол"},
+                      {value: "sound", label: "Зарлан мэдээлэх"},
                     ].map((type) => (
                       <label
                         key={type.value}
@@ -234,7 +271,7 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
                       <h3 className='text-lg text-gray-900 mb-2'>
                         {product.title}
                       </h3>
-                      <p className='text-sm text-gray-600 mb-4 line-clamp-2'>
+                      <p className='text-sm text-gray-600 mb-4'>
                         {product.description}
                       </p>
                       <div className='flex items-center justify-between'>

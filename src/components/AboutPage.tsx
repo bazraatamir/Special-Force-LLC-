@@ -104,7 +104,7 @@ export function AboutPage({onNavigate}: AboutPageProps) {
             </div>
             <div className='relative'>
               <ImageWithFallback
-                src='https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGNhbWVyYSUyMGluc3RhbGxhdGlvbnxlbnwxfHx8fDE3NjQ5NDI0MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
+                src='/products/pima-keypad.webp'
                 alt='Хяналтын камер суурилуулж буй нь'
                 className='rounded-xl shadow-xl w-full h-[400px] object-cover'
               />

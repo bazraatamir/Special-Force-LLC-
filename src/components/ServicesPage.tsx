@@ -4,7 +4,7 @@ import {
   Wrench,
   Shield,
   Zap,
-  Users,
+  Bell,
   CheckCircle,
   ArrowRight,
 } from "lucide-react";
@@ -30,7 +30,7 @@ export function ServicesPage({onNavigate}: ServicesPageProps) {
       ],
       pricing: "Гэрээгээр",
       image:
-        "https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "/products/ir-beam.webp",
     },
     {
       icon: Zap,
@@ -46,7 +46,7 @@ export function ServicesPage({onNavigate}: ServicesPageProps) {
       ],
       pricing: "Үнэ тохиролцоно",
       image:
-        "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "/products/pima-keypad.webp",
     },
     {
       icon: Camera,
@@ -62,23 +62,23 @@ export function ServicesPage({onNavigate}: ServicesPageProps) {
       ],
       pricing: "Үнэ тохиролцоно",
       image:
-        "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "/products/camera-bullet.webp",
     },
     {
-      icon: Users,
-      title: "Домофон, зарлан мэдээлэх систем",
+      icon: Bell,
+      title: "Галын дохиолол, зарлан мэдээлэх систем",
       description:
-        "Орон сууц, оффисын домофон, хаалганы удирдлага болон хурлын танхим, байгууллагын зарлан мэдээлэх системийг суурилуулна.",
+        "Утааны мэдрэгч, гар дуудлагын товч, сирен, галын дохиоллын самбар болон байгууллагын зарлан мэдээлэх системийг төлөвлөж суурилуулна.",
       features: [
-        "Видео болон аудио домофон",
-        "Хаалганы удирдлагын систем",
-        "Хурлын танхимын дуут систем",
-        "Зарлан мэдээлэх систем",
-        "Одоо байгаа системтэй холбох",
+        "Галын дохиоллын удирдлагын самбар",
+        "Утаа, дулааны мэдрэгч",
+        "Гар дуудлагын товч, гэрэлт сирен",
+        "Таазны болон хананы чанга яригч",
+        "Алсын дэлгэц, төлөв хянах",
       ],
       pricing: "Үнэ тохиролцоно",
       image:
-        "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "/products/fire-panel.webp",
     },
     {
       icon: Wrench,
@@ -94,7 +94,7 @@ export function ServicesPage({onNavigate}: ServicesPageProps) {
       ],
       pricing: "Гэрээгээр",
       image:
-        "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+        "/products/fire-repeater.webp",
     },
   ];
 
