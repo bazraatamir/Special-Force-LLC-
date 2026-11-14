@@ -3,9 +3,9 @@
 
 export const company = {
   name: "Special Force LLC",
-  phones: ["+976 9595-9876"],
+  phones: ["+976 9595-9876", "+976 9906-3729"],
   email: "specialforcellc@gmail.com",
-  address: "Улаанбаатар хот, ___ дүүрэг, ___ хороо, ___ байр", // TODO: жинхэнэ хаяг
+  address: "Улаанбаатар хот, Баянзүрх дүүрэг, 4-р хороо, 11-41",
   hours: [
     {days: "Даваа – Баасан", time: "09:00 – 18:00"},
     {days: "Бямба", time: "10:00 – 16:00"},
