@@ -26,7 +26,7 @@ export function Navbar({currentPage, onNavigate}: NavbarProps) {
             className='flex items-center gap-3 cursor-pointer'
             onClick={() => onNavigate("home")}>
             <div className='rounded-lg p-2' style={{width:"25%"}}>
-              <img src="/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="" className="w-10 h-10 object-contain" style={{objectFit:"contain", width:"100%", height:"100%"}} />
+              <img src="/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="Special Force LLC" className="w-10 h-10 object-contain" style={{objectFit:"contain", width:"100%", height:"100%"}} />
             </div>
            
           </div>
@@ -55,6 +55,7 @@ export function Navbar({currentPage, onNavigate}: NavbarProps) {
           {/* Mobile Menu Button */}
           <button
             className='md:hidden text-white'
+            aria-label='Цэс'
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? (
               <X className='h-6 w-6' />
@@ -88,7 +89,7 @@ export function Navbar({currentPage, onNavigate}: NavbarProps) {
                 setMobileMenuOpen(false);
               }}
               className='w-full mt-2 bg-white text-[#1e3a8a] px-6 py-3 rounded-md hover:bg-blue-50 transition-colors'>
-              Get Quote
+              Холбоо барих
             </button>
           </div>
         )}

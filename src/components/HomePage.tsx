@@ -28,7 +28,7 @@ export function HomePage({onNavigate}: HomePageProps) {
   },
   {
     icon: Eye,
-    title: "харуул хамгаалалт",
+    title: "Харуул хамгаалалт",
     description: "24/7 алсын хяналт болон дэмжлэг үйлчилгээ",
   },
 ];
@@ -38,44 +38,44 @@ export function HomePage({onNavigate}: HomePageProps) {
     {
       image:
         "https://images.unsplash.com/photo-1762953007649-8ea70115059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb21lJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Indoor Dome Camera",
-      description: "4K resolution, night vision, motion detection",
-      price: "249",
+      title: "Дотор орчны бөмбөгөр камер",
+      description: "4K нягтрал, шөнийн харалт, хөдөлгөөн илрүүлэлт",
+      price: "Үнэ тохиролцоно",
     },
     {
       image:
         "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Outdoor Bullet Camera",
-      description: "Weatherproof, 4K resolution, infrared night vision",
-      price: "299",
+      title: "Гадаа орчны цилиндр камер",
+      description: "Ус, тоос, хүйтэнд тэсвэртэй, 4K нягтрал, инфра улаан шөнийн харалт",
+      price: "Үнэ тохиролцоно",
     },
     {
       image:
         "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aXJlbGVzcyUyMHNlY3VyaXR5JTIwY2FtZXJhfGVufDF8fHx8MTc2NTAyODQ4Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Wireless PTZ Camera",
-      description: "Pan-tilt-zoom, 360° coverage, smart tracking",
-      price: "449",
+      title: "Утасгүй PTZ камер",
+      description: "Эргэх, хазайх, томруулах боломжтой, 360° хамралт, ухаалаг дагах функц",
+      price: "Үнэ тохиролцоно",
     },
     {
       image:
         "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxDQ1RWJTIwc3VydmVpbGxhbmNlJTIwc3lzdGVtfGVufDF8fHx8MTc2NTAyODQ4MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Complete CCTV System",
-      description: "8-channel NVR, 4 cameras, cables included",
-      price: "1,299",
+      title: "Хяналтын камерын бүрэн иж бүрдэл",
+      description: "8 сувгийн NVR, 4 камер, кабель багтсан",
+      price: "Үнэ тохиролцоно",
     },
     {
       image:
         "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwc2VjdXJpdHklMjBzeXN0ZW18ZW58MXx8fHwxNzY1MDI4NDgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Smart Home Security Hub",
-      description: "AI-powered, cloud storage, mobile app",
-      price: "599",
+      title: "Ухаалаг гэрийн хамгаалалтын төв",
+      description: "Хиймэл оюун ухаантай, клауд хадгалалт, гар утасны апп",
+      price: "Үнэ тохиролцоно",
     },
     {
       image:
         "https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGNhbWVyYSUyMGluc3RhbGxhdGlvbnxlbnwxfHx8fDE3NjQ5NDI0MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Professional Installation Package",
-      description: "Full site survey, custom setup, training included",
-      price: "From 499",
+      title: "Мэргэжлийн суурилуулалтын багц",
+      description: "Газар дээрх үзлэг, захиалгат тохиргоо, ашиглах заавар багтсан",
+      price: "Үнэ тохиролцоно",
     },
   ];
 
@@ -178,11 +178,13 @@ export function HomePage({onNavigate}: HomePageProps) {
                     {product.description}
                   </p>
                   <div className='flex items-center justify-between'>
-                    <span className='text-2xl text-[#1e3a8a]'>
-                      {product.price}₮
+                    <span className='text-lg text-[#1e3a8a]'>
+                      {product.price}
                     </span>
-                    <button className='bg-[#1e3a8a] text-white px-4 py-2 rounded-lg hover:bg-[#1e40af] transition-colors'>
-                      Дэлгэрэнгүй
+                    <button
+                      onClick={() => onNavigate("contact")}
+                      className='bg-[#1e3a8a] text-white px-4 py-2 rounded-lg hover:bg-[#1e40af] transition-colors'>
+                      Лавлах
                     </button>
                   </div>
                 </div>
@@ -229,20 +231,20 @@ export function HomePage({onNavigate}: HomePageProps) {
       <section className='py-16 bg-[#1e3a8a] text-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
           <Lock className='h-16 w-16 mx-auto mb-6 text-blue-200' />
-          <h2 className='text-3xl mb-4'>Ready to Secure Your Property?</h2>
+          <h2 className='text-3xl mb-4'>Өөрийн өмч хөрөнгөө хамгаалахад бэлэн үү?</h2>
           <p className='text-xl text-blue-100 mb-8'>
-            Get a free consultation and quote from our security experts today.
+            Манай мэргэжилтнүүдээс үнэ төлбөргүй зөвлөгөө, үнийн санал аваарай.
           </p>
           <div className='flex flex-wrap justify-center gap-4'>
             <button
               onClick={() => onNavigate("contact")}
               className='bg-white text-[#1e3a8a] px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors'>
-              Get Free Quote
+              Үнийн санал авах
             </button>
             <button
               onClick={() => onNavigate("services")}
               className='bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-colors border border-white/20'>
-              View Services
+              Үйлчилгээ үзэх
             </button>
           </div>
         </div>

@@ -25,9 +25,9 @@ export default function App() {
         return <HomePage onNavigate={handleNavigate} />;
       case 'about':
       case 'aboutus':
-        return <AboutPage />;
+        return <AboutPage onNavigate={handleNavigate} />;
       case 'products':
-        return <ProductsPage />;
+        return <ProductsPage onNavigate={handleNavigate} />;
       case 'services':
         return <ServicesPage onNavigate={handleNavigate} />;
       case 'contact':

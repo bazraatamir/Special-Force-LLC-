@@ -1,133 +1,149 @@
 import React from "react";
 import {useState} from "react";
-import {ShoppingCart, Filter, X} from "lucide-react";
+import {Phone, Filter, X} from "lucide-react";
 import {ImageWithFallback} from "./figma/ImageWithFallback";
 
-export function ProductsPage() {
+interface ProductsPageProps {
+  onNavigate: (page: string) => void;
+}
+
+// Үнэ тодорхойгүй бол null үлдээнэ — картан дээр "Үнэ тохиролцоно" гэж харагдана.
+// Үнэ (₮) оруулбал үнийн шүүлтүүр автоматаар гарч ирнэ.
+type Product = {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  price: number | null;
+  type: string;
+  category: string;
+};
+
+export function ProductsPage({onNavigate}: ProductsPageProps) {
   const [filterOpen, setFilterOpen] = useState(false);
   const [selectedType, setSelectedType] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
 
-  const products = [
+  const products: Product[] = [
     {
       id: 1,
       image:
         "https://images.unsplash.com/photo-1762953007649-8ea70115059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb21lJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Indoor Dome Camera HD",
-      description: "1080p Full HD, night vision up to 30ft, motion detection",
-      price: 199,
+      title: "Дотор орчны бөмбөгөр камер HD",
+      description: "1080p Full HD, 10 м хүртэл шөнийн харалт, хөдөлгөөн илрүүлэлт",
+      price: null,
       type: "indoor",
-      category: "Camera",
+      category: "Камер",
     },
     {
       id: 2,
       image:
         "https://images.unsplash.com/photo-1762953007649-8ea70115059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb21lJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Indoor Dome Camera 4K",
-      description: "4K Ultra HD, advanced night vision, AI motion detection",
-      price: 249,
+      title: "Дотор орчны бөмбөгөр камер 4K",
+      description: "4K Ultra HD, сайжруулсан шөнийн харалт, хиймэл оюунт хөдөлгөөн илрүүлэлт",
+      price: null,
       type: "indoor",
-      category: "Camera",
+      category: "Камер",
     },
     {
       id: 3,
       image:
         "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Outdoor Bullet Camera HD",
-      description: "Weatherproof IP66, 1080p, 60ft night vision",
-      price: 229,
+      title: "Гадаа орчны цилиндр камер HD",
+      description: "IP66 ус, тоосны хамгаалалт, 1080p, 18 м шөнийн харалт",
+      price: null,
       type: "outdoor",
-      category: "Camera",
+      category: "Камер",
     },
     {
       id: 4,
       image:
         "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Outdoor Bullet Camera 4K",
-      description: "Weatherproof IP67, 4K resolution, infrared 100ft",
-      price: 299,
+      title: "Гадаа орчны цилиндр камер 4K",
+      description: "IP67 ус, тоосны хамгаалалт, 4K нягтрал, 30 м инфра улаан харалт",
+      price: null,
       type: "outdoor",
-      category: "Camera",
+      category: "Камер",
     },
     {
       id: 5,
       image:
         "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aXJlbGVzcyUyMHNlY3VyaXR5JTIwY2FtZXJhfGVufDF8fHx8MTc2NTAyODQ4Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Wireless PTZ Camera",
-      description: "Pan-tilt-zoom, 360° coverage, auto-tracking",
-      price: 449,
+      title: "Утасгүй PTZ камер",
+      description: "Эргэх, хазайх, томруулах, 360° хамралт, автоматаар дагах",
+      price: null,
       type: "wireless",
-      category: "Camera",
+      category: "Камер",
     },
     {
       id: 6,
       image:
         "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aXJlbGVzcyUyMHNlY3VyaXR5JTIwY2FtZXJhfGVufDF8fHx8MTc2NTAyODQ4Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Wireless Security Camera Pro",
-      description: "Battery powered, solar compatible, 2K resolution",
-      price: 179,
+      title: "Утасгүй хяналтын камер Pro",
+      description: "Батарейгаар ажиллана, нарны хавтан холбогдоно, 2K нягтрал",
+      price: null,
       type: "wireless",
-      category: "Camera",
+      category: "Камер",
     },
     {
       id: 7,
       image:
         "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxDQ1RWJTIwc3VydmVpbGxhbmNlJTIwc3lzdGVtfGVufDF8fHx8MTc2NTAyODQ4MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "4-Channel NVR System",
-      description: "4 cameras included, 1TB storage, plug & play",
-      price: 799,
+      title: "4 сувгийн NVR иж бүрдэл",
+      description: "4 камер багтсан, 1TB хадгалалт, залгаад л ажиллана",
+      price: null,
       type: "system",
-      category: "System",
+      category: "Иж бүрдэл",
     },
     {
       id: 8,
       image:
         "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxDQ1RWJTIwc3VydmVpbGxhbmNlJTIwc3lzdGVtfGVufDF8fHx8MTc2NTAyODQ4MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "8-Channel NVR System",
-      description: "8 cameras included, 2TB storage, remote access",
-      price: 1299,
+      title: "8 сувгийн NVR иж бүрдэл",
+      description: "8 камер багтсан, 2TB хадгалалт, алсаас хандах",
+      price: null,
       type: "system",
-      category: "System",
+      category: "Иж бүрдэл",
     },
     {
       id: 9,
       image:
         "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxDQ1RWJTIwc3VydmVpbGxhbmNlJTIwc3lzdGVtfGVufDF8fHx8MTc2NTAyODQ4MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "16-Channel NVR System Pro",
-      description: "16 cameras, 4TB storage, AI analytics",
-      price: 2499,
+      title: "16 сувгийн NVR иж бүрдэл Pro",
+      description: "16 камер, 4TB хадгалалт, хиймэл оюунт дүн шинжилгээ",
+      price: null,
       type: "system",
-      category: "System",
+      category: "Иж бүрдэл",
     },
     {
       id: 10,
       image:
         "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwc2VjdXJpdHklMjBzeXN0ZW18ZW58MXx8fHwxNzY1MDI4NDgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Smart Home Security Hub",
-      description: "AI-powered, cloud storage, mobile app control",
-      price: 599,
+      title: "Ухаалаг гэрийн хамгаалалтын төв",
+      description: "Хиймэл оюунтай, клауд хадгалалт, гар утсаар удирдана",
+      price: null,
       type: "system",
-      category: "System",
+      category: "Иж бүрдэл",
     },
     {
       id: 11,
       image:
         "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwc2VjdXJpdHklMjBzeXN0ZW18ZW58MXx8fHwxNzY1MDI4NDgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Video Doorbell Pro",
-      description: "2K video, two-way audio, motion alerts",
-      price: 199,
+      title: "Видео хаалганы хонх Pro",
+      description: "2K видео, хоёр талын дуу яриа, хөдөлгөөний мэдэгдэл",
+      price: null,
       type: "indoor",
-      category: "Doorbell",
+      category: "Хаалганы хонх",
     },
     {
       id: 12,
       image:
         "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwc2VjdXJpdHklMjBzeXN0ZW18ZW58MXx8fHwxNzY1MDI4NDgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Cloud Storage Plan - 1 Year",
-      description: "30 days rolling storage, unlimited cameras",
-      price: 120,
+      title: "Клауд хадгалалтын багц – 1 жил",
+      description: "30 хоногийн бичлэг хадгална, камерын тоо хязгааргүй",
+      price: null,
       type: "accessory",
-      category: "Service",
+      category: "Үйлчилгээ",
     },
   ];
 
@@ -135,15 +151,22 @@ export function ProductsPage() {
     const typeMatch = selectedType === "all" || product.type === selectedType;
     let priceMatch = true;
 
-    if (priceRange === "under200") priceMatch = product.price < 200;
-    else if (priceRange === "200-500")
-      priceMatch = product.price >= 200 && product.price <= 500;
-    else if (priceRange === "500-1000")
-      priceMatch = product.price >= 500 && product.price <= 1000;
-    else if (priceRange === "over1000") priceMatch = product.price > 1000;
+    const price = product.price;
+
+    if (priceRange !== "all" && price === null) priceMatch = false;
+    else if (price !== null) {
+      if (priceRange === "under200") priceMatch = price < 200_000;
+      else if (priceRange === "200-500")
+        priceMatch = price >= 200_000 && price <= 500_000;
+      else if (priceRange === "500-1000")
+        priceMatch = price >= 500_000 && price <= 1_000_000;
+      else if (priceRange === "over1000") priceMatch = price > 1_000_000;
+    }
 
     return typeMatch && priceMatch;
   });
+
+  const hasPrices = products.some((p) => p.price !== null);
 
   return (
     <div className='pt-20'>
@@ -164,17 +187,17 @@ export function ProductsPage() {
               onClick={() => setFilterOpen(!filterOpen)}
               className='lg:hidden bg-white border border-gray-300 rounded-lg px-4 py-3 flex items-center justify-center gap-2'>
               <Filter className='h-5 w-5' />
-              Filters
+              Шүүлтүүр
             </button>
 
             {/* Sidebar Filter */}
             <div
-              className={`{
+              className={`${
                 filterOpen ? "block" : "hidden"
               } lg:block lg:w-64 shrink-0`}>
               <div className='bg-white rounded-xl p-6 shadow-md sticky top-24'>
                 <div className='flex items-center justify-between mb-4 lg:mb-6'>
-                  <h3 className='text-lg text-gray-900'>Filters</h3>
+                  <h3 className='text-lg text-gray-900'>Шүүлтүүр</h3>
                   <button
                     onClick={() => setFilterOpen(false)}
                     className='lg:hidden'>
@@ -184,15 +207,15 @@ export function ProductsPage() {
 
                 {/* Type Filter */}
                 <div className='mb-6'>
-                  <h4 className='text-sm text-gray-900 mb-3'>Type</h4>
+                  <h4 className='text-sm text-gray-900 mb-3'>Төрөл</h4>
                   <div className='space-y-2'>
                     {[
-                      {value: "all", label: "Бүх Бүтээгдэхүүн"},
+                      {value: "all", label: "Бүх бүтээгдэхүүн"},
                       {value: "indoor", label: "Дотор"},
                       {value: "outdoor", label: "Гадаа"},
                       {value: "wireless", label: "Утасгүй"},
-                      {value: "system", label: "Бүтэн Систем"},
-                      {value: "accessory", label: "Хэрэгслийн"},
+                      {value: "system", label: "Иж бүрдэл систем"},
+                      {value: "accessory", label: "Нэмэлт хэрэгсэл, үйлчилгээ"},
                     ].map((type) => (
                       <label
                         key={type.value}
@@ -214,15 +237,16 @@ export function ProductsPage() {
                 </div>
 
                 {/* Price Range Filter */}
+                {hasPrices && (
                 <div>
-                  <h4 className='text-sm text-gray-900 mb-3'>Price Range</h4>
+                  <h4 className='text-sm text-gray-900 mb-3'>Үнийн хязгаар</h4>
                   <div className='space-y-2'>
                     {[
-                      {value: "all", label: "All Prices"},
-                      {value: "under200", label: "Under 200"},
-                      {value: "200-500", label: "200 - 500"},
-                      {value: "500-1000", label: "500 - 1,000"},
-                      {value: "over1000", label: "Over 1,000"},
+                      {value: "all", label: "Бүх үнэ"},
+                      {value: "under200", label: "200,000₮-с доош"},
+                      {value: "200-500", label: "200,000 – 500,000₮"},
+                      {value: "500-1000", label: "500,000 – 1,000,000₮"},
+                      {value: "over1000", label: "1,000,000₮-с дээш"},
                     ].map((range) => (
                       <label
                         key={range.value}
@@ -242,6 +266,7 @@ export function ProductsPage() {
                     ))}
                   </div>
                 </div>
+                )}
 
                 <button
                   onClick={() => {
@@ -249,7 +274,7 @@ export function ProductsPage() {
                     setPriceRange("all");
                   }}
                   className='w-full mt-6 text-sm text-[#1e3a8a] hover:underline'>
-                  Clear All Filters
+                  Шүүлтүүр цэвэрлэх
                 </button>
               </div>
             </div>
@@ -257,7 +282,7 @@ export function ProductsPage() {
             {/* Products Grid */}
             <div className='flex-1'>
               <div className='mb-4 text-gray-600'>
-                Showing {filteredProducts.length} products
+                Нийт {filteredProducts.length} бүтээгдэхүүн
               </div>
 
               <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -281,12 +306,19 @@ export function ProductsPage() {
                         {product.description}
                       </p>
                       <div className='flex items-center justify-between'>
-                        <span className='text-2xl text-[#1e3a8a]'>
-                          {product.price}
+                        <span
+                          className={`${
+                            product.price !== null ? "text-2xl" : "text-lg"
+                          } text-[#1e3a8a]`}>
+                          {product.price !== null
+                            ? `${product.price.toLocaleString("en-US")}₮`
+                            : "Үнэ тохиролцоно"}
                         </span>
-                        <button className='bg-[#1e3a8a] text-white px-4 py-2 rounded-lg hover:bg-[#1e40af] transition-colors flex items-center gap-2'>
-                          <ShoppingCart className='h-4 w-4' />
-                          Худалдаж авах
+                        <button
+                          onClick={() => onNavigate("contact")}
+                          className='bg-[#1e3a8a] text-white px-4 py-2 rounded-lg hover:bg-[#1e40af] transition-colors flex items-center gap-2'>
+                          <Phone className='h-4 w-4' />
+                          Лавлах
                         </button>
                       </div>
                     </div>
@@ -297,7 +329,7 @@ export function ProductsPage() {
               {filteredProducts.length === 0 && (
                 <div className='text-center py-12'>
                   <p className='text-gray-500'>
-                    No products match your filters.
+                    Шүүлтүүрт тохирох бүтээгдэхүүн олдсонгүй.
                   </p>
                 </div>
               )}

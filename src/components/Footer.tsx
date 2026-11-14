@@ -1,4 +1,5 @@
-import { Shield, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { company, telHref } from '../data/company';
 
 interface FooterProps {
   onNavigate: (page: string) => void;
@@ -13,7 +14,7 @@ export function Footer({ onNavigate }: FooterProps) {
           <div className="col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <div className=" rounded-lg p-2">
-                <img src="/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="" />
+                <img src="/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="Special Force LLC" />
               </div>
               
             </div>
@@ -24,15 +25,21 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white mb-4">Quick Links</h3>
+            <h3 className="text-white mb-4">Цэс</h3>
             <ul className="space-y-2">
-              {['Нүүр', 'Бидний тухай', 'Үйлчилгээ', 'Бүтээгдэхүүн', 'Холбоо барих'].map((item, index) => (
-                <li key={index}>
+              {[
+                { name: 'Нүүр', id: 'home' },
+                { name: 'Бидний тухай', id: 'about' },
+                { name: 'Үйлчилгээ', id: 'services' },
+                { name: 'Бүтээгдэхүүн', id: 'products' },
+                { name: 'Холбоо барих', id: 'contact' },
+              ].map((item) => (
+                <li key={item.id}>
                   <button
-                    onClick={() => onNavigate(item.toLowerCase().replace(' ', ''))}
+                    onClick={() => onNavigate(item.id)}
                     className="text-sm hover:text-white transition-colors"
                   >
-                    {item}
+                    {item.name}
                   </button>
                 </li>
               ))}
@@ -44,55 +51,54 @@ export function Footer({ onNavigate }: FooterProps) {
             <h3 className="text-white mb-4">Бидний Үйлчилгээ</h3>
             <ul className="space-y-2 text-sm">
               <li>Камерын суурилуулалт</li>
-              <li>Системийн ажиллагаа</li>
+              <li>Засвар үйлчилгээ</li>
               <li>24/7 хяналт</li>
-              <li>Аюулгүй байдлын санал болгох</li>
+              <li>Дохиолол хамгаалалт</li>
               <li>Системийн шинэчлэлт</li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white mb-4">Contact Us</h3>
+            <h3 className="text-white mb-4">Холбоо барих</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3 text-sm">
                 <Phone className="h-4 w-4 mt-0.5 shrink-0" />
                 <div>
-                  <div>+976 (555) 123-4567</div>
-                  <div>+1 (555) 987-6543</div>
+                  {company.phones.map((phone, i) => (
+                    <a key={i} href={telHref(phone)} className="block hover:text-white transition-colors">{phone}</a>
+                  ))}
                 </div>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="h-4 w-4 shrink-0" />
-                <span>info@securevision.com</span>
+                <a href={`mailto:${company.email}`} className="hover:text-white transition-colors">{company.email}</a>
               </li>
               <li className="flex items-start gap-3 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                <span>123 Security Blvd, Suite 100<br />New York, NY 10001</span>
+                <span>{company.address}</span>
               </li>
             </ul>
             
             {/* Social Media */}
             <div className="flex gap-3 mt-4">
-              <button className="bg-white/10 p-2 rounded-md hover:bg-white/20 transition-colors">
-                <Facebook className="h-4 w-4" />
-              </button>
-              <button className="bg-white/10 p-2 rounded-md hover:bg-white/20 transition-colors">
-                <Twitter className="h-4 w-4" />
-              </button>
-              <button className="bg-white/10 p-2 rounded-md hover:bg-white/20 transition-colors">
-                <Instagram className="h-4 w-4" />
-              </button>
-              <button className="bg-white/10 p-2 rounded-md hover:bg-white/20 transition-colors">
-                <Linkedin className="h-4 w-4" />
-              </button>
+              {company.social.facebook && (
+                <a href={company.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="bg-white/10 p-2 rounded-md hover:bg-white/20 transition-colors">
+                  <Facebook className="h-4 w-4" />
+                </a>
+              )}
+              {company.social.instagram && (
+                <a href={company.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="bg-white/10 p-2 rounded-md hover:bg-white/20 transition-colors">
+                  <Instagram className="h-4 w-4" />
+                </a>
+              )}
             </div>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} SecureVision Security Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {company.name}. Бүх эрх хуулиар хамгаалагдсан.</p>
         </div>
       </div>
     </footer>

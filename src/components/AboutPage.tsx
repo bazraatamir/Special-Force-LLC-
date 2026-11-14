@@ -11,7 +11,11 @@ import {
 } from "lucide-react";
 import {ImageWithFallback} from "./figma/ImageWithFallback";
 
-export function AboutPage() {
+interface AboutPageProps {
+  onNavigate: (page: string) => void;
+}
+
+export function AboutPage({onNavigate}: AboutPageProps) {
   const services = [
     {
       icon: Camera,
@@ -25,7 +29,7 @@ export function AboutPage() {
     },
     {
       icon: Eye,
-      title: "харуул хамгаалалт",
+      title: "Харуул хамгаалалт",
       description: "24/7 алсын хяналт болон дэмжлэг үйлчилгээ",
     },
   ];
@@ -59,7 +63,7 @@ export function AboutPage() {
 
   const stats = [
     {number: "1000+", label: "Суурилуулсан систем"},
-    {number: "10+", label: "Туршлага"},
+    {number: "10+", label: "Жилийн туршлага"},
     {number: "99%", label: "Сэтгэл ханамжийн түвшин"},
     {number: "24/7", label: "Харуул хамгаалалт"},
   ];
@@ -101,7 +105,7 @@ export function AboutPage() {
             <div className='relative'>
               <ImageWithFallback
                 src='https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGNhbWVyYSUyMGluc3RhbGxhdGlvbnxlbnwxfHx8fDE3NjQ5NDI0MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral'
-                alt='Security camera installation'
+                alt='Хяналтын камер суурилуулж буй нь'
                 className='rounded-xl shadow-xl w-full h-[400px] object-cover'
               />
             </div>
@@ -155,7 +159,7 @@ export function AboutPage() {
       <section className='py-16 bg-gray-50'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl text-gray-900 mb-4'>Яагаад Special Force LLC компанийг сонгох ёстой вэ</h2>
+            <h2 className='text-3xl text-gray-900 mb-4'>Яагаад Special Force LLC-г сонгох вэ?</h2>
             
           </div>
 
@@ -179,9 +183,9 @@ export function AboutPage() {
       <section className='py-16 bg-white'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center mb-12'>
-            <h2 className='text-3xl text-gray-900 mb-4'>How We Work</h2>
+            <h2 className='text-3xl text-gray-900 mb-4'>Ажлын үе шат</h2>
             <p className='text-lg text-gray-600 max-w-3xl mx-auto'>
-              Our streamlined process ensures quality results every time
+              Цэгцтэй ажлын явц нь үр дүнгийн чанарыг баталгаажуулна
             </p>
           </div>
 
@@ -189,23 +193,23 @@ export function AboutPage() {
             {[
               {
                 step: "01",
-                title: "Consultation",
-                desc: "Free site survey and needs assessment",
+                title: "Зөвлөгөө",
+                desc: "Үнэ төлбөргүй газар дээрх үзлэг, хэрэгцээний үнэлгээ",
               },
               {
                 step: "02",
-                title: "Design",
-                desc: "Custom security system design and quote",
+                title: "Төлөвлөлт",
+                desc: "Таны хэрэгцээнд тохирсон системийн зураг төсөл, үнийн санал",
               },
               {
                 step: "03",
-                title: "Installation",
-                desc: "Professional installation by certified techs",
+                title: "Суурилуулалт",
+                desc: "Мэргэшсэн техникчдийн мэргэжлийн суурилуулалт",
               },
               {
                 step: "04",
-                title: "Support",
-                desc: "Ongoing maintenance and 24/7 monitoring",
+                title: "Дэмжлэг",
+                desc: "Тогтмол засвар үйлчилгээ, 24/7 хяналт",
               },
             ].map((item, index) => (
               <div key={index} className='relative'>
@@ -229,13 +233,15 @@ export function AboutPage() {
       {/* CTA Section */}
       <section className='py-16 bg-[#1e3a8a] text-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <h2 className='text-3xl mb-4'>Ready to Get Started?</h2>
+          <h2 className='text-3xl mb-4'>Эхлэхэд бэлэн үү?</h2>
           <p className='text-xl text-blue-100 mb-8'>
-            Contact us today for a free consultation and see how we can secure
-            your property.
+            Өнөөдөр бидэнтэй холбогдож үнэ төлбөргүй зөвлөгөө аваарай. Таны өмч
+            хөрөнгийг хэрхэн хамгаалж болохыг бид танд санал болгоно.
           </p>
-          <button className='bg-white text-[#1e3a8a] px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors'>
-            Contact Us Now
+          <button
+            onClick={() => onNavigate("contact")}
+            className='bg-white text-[#1e3a8a] px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors'>
+            Холбоо барих
           </button>
         </div>
       </section>

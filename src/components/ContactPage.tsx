@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Phone, Mail, MapPin, Clock, Send} from "lucide-react";
+import {company, telHref} from "../data/company";
 
 export function ContactPage() {
   const [formData, setFormData] = useState({
@@ -12,9 +13,31 @@ export function ContactPage() {
 
   const [submitted, setSubmitted] = useState(false);
 
+  const subjects = [
+    {value: "installation", label: "Суурилуулалтын үйлчилгээ"},
+    {value: "maintenance", label: "Засвар үйлчилгээ"},
+    {value: "monitoring", label: "Хяналт, харуул хамгаалалт"},
+    {value: "alarm", label: "Дохиолол хамгаалалт"},
+    {value: "product", label: "Бүтээгдэхүүний лавлагаа"},
+    {value: "quote", label: "Үнийн санал авах"},
+    {value: "other", label: "Бусад"},
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission (mock)
+    // Backend байхгүй тул хэрэглэгчийн имэйл програмыг бөглөсөн захиатай нээнэ
+    const subjectLabel =
+      subjects.find((s) => s.value === formData.subject)?.label ?? "";
+    const body = [
+      `Нэр: ${formData.name}`,
+      `Утас: ${formData.phone}`,
+      `Имэйл: ${formData.email}`,
+      "",
+      formData.message,
+    ].join("\n");
+    window.location.href = `mailto:${company.email}?subject=${encodeURIComponent(
+      `[Вэбсайт] ${subjectLabel}`
+    )}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -39,9 +62,9 @@ export function ContactPage() {
       <section className='bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] text-white py-20'>
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='text-center'>
-            <h1 className='text-4xl lg:text-5xl mb-6'>Contact Us</h1>
+            <h1 className='text-4xl lg:text-5xl mb-6'>Холбоо барих</h1>
             <p className='text-xl text-blue-100 max-w-3xl mx-auto'>
-              Get in touch with our security experts for a free consultation
+              Манай мэргэжилтнүүдтэй холбогдож үнэ төлбөргүй зөвлөгөө аваарай
             </p>
           </div>
         </div>
@@ -58,58 +81,52 @@ export function ContactPage() {
                 <div className='bg-[#1e3a8a] w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
                   <Phone className='h-6 w-6 text-white' />
                 </div>
-                <h3 className='text-lg text-gray-900 mb-2'>Phone</h3>
-                <p className='text-gray-600 mb-1'>+1 (555) 123-4567</p>
-                <p className='text-gray-600'>+1 (555) 987-6543</p>
-                <p className='text-sm text-gray-500 mt-2'>Mon-Fri, 8am-6pm</p>
+                <h3 className='text-lg text-gray-900 mb-2'>Утас</h3>
+                {company.phones.map((phone, i) => (
+                  <a
+                    key={i}
+                    href={telHref(phone)}
+                    className='block text-gray-600 mb-1 hover:underline'>
+                    {phone}
+                  </a>
+                ))}
+                <p className='text-sm text-gray-500 mt-2'>{company.emergency}</p>
               </div>
 
               <div className='bg-white rounded-xl p-6 shadow-md'>
                 <div className='bg-[#1e3a8a] w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
                   <Mail className='h-6 w-6 text-white' />
                 </div>
-                <h3 className='text-lg text-gray-900 mb-2'>Email</h3>
-                <p className='text-gray-600 mb-1'>info@securevision.com</p>
-                <p className='text-gray-600'>support@securevision.com</p>
-                <p className='text-sm text-gray-500 mt-2'>24/7 response</p>
+                <h3 className='text-lg text-gray-900 mb-2'>Имэйл</h3>
+                <a
+                  href={`mailto:${company.email}`}
+                  className='text-gray-600 hover:underline'>
+                  {company.email}
+                </a>
               </div>
 
               <div className='bg-white rounded-xl p-6 shadow-md'>
                 <div className='bg-[#1e3a8a] w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
                   <MapPin className='h-6 w-6 text-white' />
                 </div>
-                <h3 className='text-lg text-gray-900 mb-2'>Address</h3>
-                <p className='text-gray-600'>
-                  123 Security Blvd, Suite 100
-                  <br />
-                  New York, NY 10001
-                  <br />
-                  United States
-                </p>
+                <h3 className='text-lg text-gray-900 mb-2'>Хаяг</h3>
+                <p className='text-gray-600'>{company.address}</p>
               </div>
 
               <div className='bg-white rounded-xl p-6 shadow-md'>
                 <div className='bg-[#1e3a8a] w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
                   <Clock className='h-6 w-6 text-white' />
                 </div>
-                <h3 className='text-lg text-gray-900 mb-2'>Business Hours</h3>
+                <h3 className='text-lg text-gray-900 mb-2'>Ажлын цаг</h3>
                 <div className='text-gray-600 space-y-1 text-sm'>
-                  <div className='flex justify-between'>
-                    <span>Monday - Friday:</span>
-                    <span>8:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className='flex justify-between'>
-                    <span>Saturday:</span>
-                    <span>9:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className='flex justify-between'>
-                    <span>Sunday:</span>
-                    <span>Closed</span>
-                  </div>
+                  {company.hours.map((h, i) => (
+                    <div key={i} className='flex justify-between'>
+                      <span>{h.days}:</span>
+                      <span>{h.time}</span>
+                    </div>
+                  ))}
                   <div className='mt-2 pt-2 border-t border-gray-200'>
-                    <span className='text-green-600'>
-                      Emergency: 24/7 Available
-                    </span>
+                    <span className='text-green-600'>{company.emergency}</span>
                   </div>
                 </div>
               </div>
@@ -119,13 +136,13 @@ export function ContactPage() {
             <div className='lg:col-span-2'>
               <div className='bg-white rounded-xl p-8 shadow-md'>
                 <h2 className='text-2xl text-gray-900 mb-6'>
-                  Send Us a Message
+                  Бидэнд зурвас илгээх
                 </h2>
 
                 {submitted && (
                   <div className='mb-6 bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg'>
-                    Thank you for your message! We&apos;ll get back to you
-                    within 24 hours.
+                    Таны имэйл програм нээгдлээ. Захиагаа илгээснээр бид 24 цагийн
+                    дотор эргэн холбогдоно.
                   </div>
                 )}
 
@@ -135,7 +152,7 @@ export function ContactPage() {
                       <label
                         htmlFor='name'
                         className='block text-sm text-gray-700 mb-2'>
-                        Full Name *
+                        Овог нэр *
                       </label>
                       <input
                         type='text'
@@ -145,7 +162,7 @@ export function ContactPage() {
                         onChange={handleChange}
                         required
                         className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a8a] focus:border-transparent outline-none'
-                        placeholder='John Doe'
+                        placeholder='Бат-Эрдэнэ'
                       />
                     </div>
 
@@ -153,7 +170,7 @@ export function ContactPage() {
                       <label
                         htmlFor='phone'
                         className='block text-sm text-gray-700 mb-2'>
-                        Phone Number *
+                        Утасны дугаар *
                       </label>
                       <input
                         type='tel'
@@ -163,7 +180,7 @@ export function ContactPage() {
                         onChange={handleChange}
                         required
                         className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a8a] focus:border-transparent outline-none'
-                        placeholder='+1 (555) 123-4567'
+                        placeholder='9911-2233'
                       />
                     </div>
                   </div>
@@ -172,7 +189,7 @@ export function ContactPage() {
                     <label
                       htmlFor='email'
                       className='block text-sm text-gray-700 mb-2'>
-                      Email Address *
+                      Имэйл хаяг *
                     </label>
                     <input
                       type='email'
@@ -182,7 +199,7 @@ export function ContactPage() {
                       onChange={handleChange}
                       required
                       className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a8a] focus:border-transparent outline-none'
-                      placeholder='john@example.com'
+                      placeholder='name@example.com'
                     />
                   </div>
 
@@ -190,7 +207,7 @@ export function ContactPage() {
                     <label
                       htmlFor='subject'
                       className='block text-sm text-gray-700 mb-2'>
-                      Subject *
+                      Сэдэв *
                     </label>
                     <select
                       id='subject'
@@ -199,14 +216,12 @@ export function ContactPage() {
                       onChange={handleChange}
                       required
                       className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a8a] focus:border-transparent outline-none'>
-                      <option value=''>Select a subject</option>
-                      <option value='installation'>Installation Service</option>
-                      <option value='maintenance'>Maintenance Service</option>
-                      <option value='monitoring'>Monitoring Service</option>
-                      <option value='product'>Product Inquiry</option>
-                      <option value='support'>Technical Support</option>
-                      <option value='quote'>Request a Quote</option>
-                      <option value='other'>Other</option>
+                      <option value=''>Сэдвээ сонгоно уу</option>
+                      {subjects.map((s) => (
+                        <option key={s.value} value={s.value}>
+                          {s.label}
+                        </option>
+                      ))}
                     </select>
                   </div>
 
@@ -214,7 +229,7 @@ export function ContactPage() {
                     <label
                       htmlFor='message'
                       className='block text-sm text-gray-700 mb-2'>
-                      Message *
+                      Зурвас *
                     </label>
                     <textarea
                       id='message'
@@ -224,7 +239,7 @@ export function ContactPage() {
                       required
                       rows={6}
                       className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a8a] focus:border-transparent outline-none resize-none'
-                      placeholder='Please describe your security needs...'
+                      placeholder='Таны хэрэгцээ, байршил, хэдэн камер хэрэгтэй зэргийг бичнэ үү...'
                     />
                   </div>
 
@@ -232,7 +247,7 @@ export function ContactPage() {
                     type='submit'
                     className='w-full bg-[#1e3a8a] text-white px-6 py-4 rounded-lg hover:bg-[#1e40af] transition-colors flex items-center justify-center gap-2'>
                     <Send className='h-5 w-5' />
-                    Send Message
+                    Илгээх
                   </button>
                 </form>
               </div>
@@ -247,10 +262,8 @@ export function ContactPage() {
           <div className='bg-gray-200 rounded-xl overflow-hidden h-[400px] flex items-center justify-center'>
             <div className='text-center text-gray-500'>
               <MapPin className='h-16 w-16 mx-auto mb-4 text-gray-400' />
-              <p className='text-lg'>Map Placeholder</p>
-              <p className='text-sm'>
-                123 Security Blvd, Suite 100, New York, NY 10001
-              </p>
+              <p className='text-lg'>Байршил</p>
+              <p className='text-sm'>{company.address}</p>
             </div>
           </div>
         </div>
@@ -259,22 +272,22 @@ export function ContactPage() {
       {/* Quick Contact CTA */}
       <section className='py-16 bg-[#1e3a8a] text-white'>
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
-          <h2 className='text-3xl mb-4'>Need Immediate Assistance?</h2>
+          <h2 className='text-3xl mb-4'>Яаралтай тусламж хэрэгтэй юу?</h2>
           <p className='text-xl text-blue-100 mb-8'>
-            Call us now for emergency support or urgent security concerns
+            Яаралтай тохиолдолд манай шуурхай албатай шууд холбогдоорой
           </p>
           <div className='flex flex-wrap justify-center gap-4'>
             <a
-              href='tel:+15551234567'
+              href={telHref(company.phones[0])}
               className='bg-white text-[#1e3a8a] px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors inline-flex items-center gap-2'>
               <Phone className='h-5 w-5' />
-              +1 (555) 123-4567
+              {company.phones[0]}
             </a>
             <a
-              href='mailto:info@securevision.com'
+              href={`mailto:${company.email}`}
               className='bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-colors border border-white/20 inline-flex items-center gap-2'>
               <Mail className='h-5 w-5' />
-              info@securevision.com
+              {company.email}
             </a>
           </div>
         </div>
