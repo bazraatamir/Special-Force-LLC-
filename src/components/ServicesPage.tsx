@@ -2,10 +2,9 @@ import React from "react";
 import {
   Camera,
   Wrench,
-  Eye,
   Shield,
   Zap,
-  HeadphonesIcon,
+  Users,
   CheckCircle,
   ArrowRight,
 } from "lucide-react";
@@ -18,100 +17,84 @@ interface ServicesPageProps {
 export function ServicesPage({onNavigate}: ServicesPageProps) {
   const mainServices = [
     {
-      icon: Camera,
-      title: "Камер суурилуулалт",
+      icon: Shield,
+      title: "Харуул хамгаалалт",
       description:
-        "Орон сууц болон аж ахуйн нэгжийн байранд хяналтын камерыг мэргэжлийн түвшинд суурилуулна. Манай мэргэшсэн техникчид камерын байршил, тохиргоог оновчтой шийднэ.",
+        "Өдөр шөнөгүй ажилладаг төв пульт, шуурхай бүлэг, гэрээт харуулаас бүрдсэн цогц хамгаалалт. Галын, хулгайн болон бусад аюулын дохиог хүлээн авч шуурхай арга хэмжээ авна.",
+      features: [
+        "24/7 төв пультын хяналт",
+        "Шуурхай бүлгийн дуудлага",
+        "Гэрээт харуул",
+        "Дохиоллын бүртгэл, тайлан",
+        "Гэрээт обьектод тогтмол үзлэг",
+      ],
+      pricing: "Гэрээгээр",
+      image:
+        "https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    },
+    {
+      icon: Zap,
+      title: "Дохиолол суурилуулалт",
+      description:
+        "Хулгайн болон галын дохиоллын системийг таны байранд тохируулан төлөвлөж суурилуулна. Төв пульттэй холбож 24/7 хяналтад оруулах боломжтой.",
       features: [
         "Газар дээрх үзлэг, зөвлөгөө",
-        "Камерын байршлын захиалгат төлөвлөлт",
-        "Кабелийн мэргэжлийн угсралт",
-        "Системийн тохиргоо, туршилт",
-        "Систем ашиглах заавар, сургалт",
+        "Хулгайн дохиоллын систем",
+        "Галын дохиоллын систем",
+        "Төв пульттэй холболт",
+        "Ашиглах заавар, сургалт",
       ],
       pricing: "Үнэ тохиролцоно",
       image:
-        "https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGNhbWVyYSUyMGluc3RhbGxhdGlvbnxlbnwxfHx8fDE3NjQ5NDI0MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    },
+    {
+      icon: Camera,
+      title: "Хяналтын камер суурилуулалт",
+      description:
+        "Орон сууц, аж ахуйн нэгжийн байранд хяналтын камерыг мэргэжлийн түвшинд суурилуулна. Камерын байршил, бичлэг хадгалалт, алсын хандалтыг оновчтой тохируулна.",
+      features: [
+        "Камерын байршлын төлөвлөлт",
+        "Кабелийн мэргэжлийн угсралт",
+        "NVR/DVR бичлэгийн тохиргоо",
+        "Гар утсаар алсаас хянах тохиргоо",
+        "Систем ашиглах заавар",
+      ],
+      pricing: "Үнэ тохиролцоно",
+      image:
+        "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    },
+    {
+      icon: Users,
+      title: "Домофон, зарлан мэдээлэх систем",
+      description:
+        "Орон сууц, оффисын домофон, хаалганы удирдлага болон хурлын танхим, байгууллагын зарлан мэдээлэх системийг суурилуулна.",
+      features: [
+        "Видео болон аудио домофон",
+        "Хаалганы удирдлагын систем",
+        "Хурлын танхимын дуут систем",
+        "Зарлан мэдээлэх систем",
+        "Одоо байгаа системтэй холбох",
+      ],
+      pricing: "Үнэ тохиролцоно",
+      image:
+        "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     },
     {
       icon: Wrench,
       title: "Засвар үйлчилгээ",
       description:
-        "Таны хамгаалалтын системийг тасралтгүй, бүрэн хүчин чадлаар ажиллуулах тогтмол засвар үйлчилгээ. Асуудлыг гарахаас нь өмнө урьдчилан сэргийлнэ.",
+        "Суурилуулсан систем тань тасралтгүй ажиллахын тулд тогтмол үзлэг, засвар үйлчилгээ хийж, асуудлыг гарахаас нь өмнө урьдчилан сэргийлнэ.",
       features: [
-        "Улирал тутмын системийн үзлэг",
-        "Камерын цэвэрлэгээ, тохируулга",
+        "Тогтмол системийн үзлэг",
+        "Камер, мэдрэгчийн цэвэрлэгээ, тохируулга",
         "Програм хангамжийн шинэчлэлт",
         "Кабель, холболтын шалгалт",
-        "Ажиллагааны оновчлол",
+        "Яаралтай засвар",
       ],
-      pricing: "Үнэ тохиролцоно",
+      pricing: "Гэрээгээр",
       image:
-        "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
-    {
-      icon: Eye,
-      title: "24/7 хяналт",
-      description:
-        "Шуурхай мэдэгдэл, хурдан хариу арга хэмжээтэй мэргэжлийн хяналтын үйлчилгээ. Өмч хөрөнгөө хаанаас ч алсаас хянах боломжтой.",
-      features: [
-        "Бодит цагийн видео хяналт",
-        "Хөдөлгөөний шуурхай мэдэгдэл",
-        "Гар утасны аппаар хандах",
-        "Видео бичлэгийн клауд хадгалалт",
-        "Шуурхай бүлгийн дуудлагын зохицуулалт",
-      ],
-      pricing: "Үнэ тохиролцоно",
-      image:
-        "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxDQ1RWJTIwc3VydmVpbGxhbmNlJTIwc3lzdGVtfGVufDF8fHx8MTc2NTAyODQ4MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
-    {
-      icon: Shield,
-      title: "Хамгаалалтын систем угсралт",
-      description:
-        "Таны хэрэгцээнд тусгайлан тохируулсан хамгаалалтын системийн зураг төсөл, угсралт. Төлөвлөлтөөс эхлээд гүйцэтгэл хүртэл бүх ажлыг бид хариуцна.",
-      features: [
-        "Аюулгүй байдлын иж бүрэн үнэлгээ",
-        "Захиалгат системийн төлөвлөлт",
-        "Тоног төхөөрөмж сонголт, нийлүүлэлт",
-        "Бүрэн угсралт, суурилуулалт",
-        "Одоо байгаа системтэй холбох",
-      ],
-      pricing: "Үнийн санал авна уу",
-      image:
-        "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwc2VjdXJpdHklMjBzeXN0ZW18ZW58MXx8fHwxNzY1MDI4NDgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
-    {
-      icon: Zap,
-      title: "Системийн шинэчлэлт",
-      description:
-        "Одоо байгаа хамгаалалтын системээ хамгийн сүүлийн үеийн технологиор шинэчилж, орчин үеийн боломж, илүү сайн гүйцэтгэлтэй болгоорой.",
-      features: [
-        "Системийн нийцлийн үнэлгээ",
-        "Шинэ технологи нэвтрүүлэлт",
-        "HD камерыг 4K болгох",
-        "Клауд хадгалалт руу шилжүүлэх",
-        "Ухаалаг гэрийн системтэй холбох",
-      ],
-      pricing: "Үнэ тохиролцоно",
-      image:
-        "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aXJlbGVzcyUyMHNlY3VyaXR5JTIwY2FtZXJhfGVufDF8fHx8MTc2NTAyODQ4Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    },
-    {
-      icon: HeadphonesIcon,
-      title: "Техникийн дэмжлэг",
-      description:
-        "Хамгаалалтын системтэй холбоотой бүх асуудалд 24/7 техникийн дэмжлэг үзүүлнэ. Манай мэргэжилтнүүд таны асуултад үргэлж туслахад бэлэн.",
-      features: [
-        "24/7 утас, имэйлээр дэмжлэг",
-        "Алсаас алдаа засварлах",
-        "Газар дээр очиж үйлчлэх",
-        "Систем ашиглах сургалт, заавар",
-        "Яаралтай тохиолдолд нэн тэргүүнд хариу өгөх",
-      ],
-      pricing: "Бүх системд багтсан",
-      image:
-        "https://images.unsplash.com/photo-1762953007649-8ea70115059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb21lJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+        "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     },
   ];
 

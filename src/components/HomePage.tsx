@@ -36,45 +36,39 @@ export function HomePage({onNavigate}: HomePageProps) {
 
   const products = [
     {
-      image:
-        "https://images.unsplash.com/photo-1762953007649-8ea70115059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb21lJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Дотор орчны бөмбөгөр камер",
-      description: "4K нягтрал, шөнийн харалт, хөдөлгөөн илрүүлэлт",
+      image: "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      title: "Хяналтын камер",
+      description: "Дотор, гадна орчны камер, бичлэгийн төхөөрөмж, алсын хяналт",
       price: "Үнэ тохиролцоно",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvdXRkb29yJTIwc2VjdXJpdHklMjBjYW1lcmF8ZW58MXx8fHwxNzY1MDI4NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Гадаа орчны цилиндр камер",
-      description: "Ус, тоос, хүйтэнд тэсвэртэй, 4K нягтрал, инфра улаан шөнийн харалт",
+      image: "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      title: "Хулгайн дохиолол",
+      description: "Хөдөлгөөн, хаалга цонхны мэдрэгч, төв пульттэй холболт",
       price: "Үнэ тохиролцоно",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aXJlbGVzcyUyMHNlY3VyaXR5JTIwY2FtZXJhfGVufDF8fHx8MTc2NTAyODQ4Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Утасгүй PTZ камер",
-      description: "Эргэх, хазайх, томруулах боломжтой, 360° хамралт, ухаалаг дагах функц",
+      image: "https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      title: "Галын дохиолол",
+      description: "Утаа, дулаан мэдрэгч, галын дохиоллын самбар",
       price: "Үнэ тохиролцоно",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1723399726238-cc1b5cdcf8c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxDQ1RWJTIwc3VydmVpbGxhbmNlJTIwc3lzdGVtfGVufDF8fHx8MTc2NTAyODQ4MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Хяналтын камерын бүрэн иж бүрдэл",
-      description: "8 сувгийн NVR, 4 камер, кабель багтсан",
+      image: "https://images.unsplash.com/photo-1762953007649-8ea70115059a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      title: "Дохиоллын станц",
+      description: "Обьектуудын дохиоллыг нэг дор хүлээн авах төв пульт",
       price: "Үнэ тохиролцоно",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1558002038-1055907df827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob21lJTIwc2VjdXJpdHklMjBzeXN0ZW18ZW58MXx8fHwxNzY1MDI4NDgzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Ухаалаг гэрийн хамгаалалтын төв",
-      description: "Хиймэл оюун ухаантай, клауд хадгалалт, гар утасны апп",
+      image: "https://images.unsplash.com/photo-1724343025504-3afb6d67566b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      title: "Домофон систем",
+      description: "Видео, аудио домофон, хаалганы удирдлага",
       price: "Үнэ тохиролцоно",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1669049515462-6ab71c151720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGNhbWVyYSUyMGluc3RhbGxhdGlvbnxlbnwxfHx8fDE3NjQ5NDI0MTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      title: "Мэргэжлийн суурилуулалтын багц",
-      description: "Газар дээрх үзлэг, захиалгат тохиргоо, ашиглах заавар багтсан",
+      image: "https://images.unsplash.com/photo-1621886943381-cb97cc18b17a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      title: "Хурал, зарлан мэдээлэх систем",
+      description: "Хурлын танхимын дуут систем, зарлан мэдээлэх систем",
       price: "Үнэ тохиролцоно",
     },
   ];
