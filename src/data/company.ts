@@ -3,8 +3,8 @@
 
 export const company = {
   name: "Special Force LLC",
-  phones: ["+976 0000-0000", "+976 0000-0000"], // TODO: жинхэнэ дугаар
-  email: "info@specialforce.mn", // TODO: жинхэнэ имэйл
+  phones: ["+976 9595-9876"],
+  email: "specialforcellc@gmail.com",
   address: "Улаанбаатар хот, ___ дүүрэг, ___ хороо, ___ байр", // TODO: жинхэнэ хаяг
   hours: [
     {days: "Даваа – Баасан", time: "09:00 – 18:00"},
