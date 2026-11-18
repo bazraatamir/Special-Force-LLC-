@@ -103,11 +103,15 @@ export function AboutPage({onNavigate}: AboutPageProps) {
               </div>
             </div>
             <div className='relative'>
-              <ImageWithFallback
-                src='/products/pima-keypad.webp'
-                alt='Хяналтын камер суурилуулж буй нь'
-                className='rounded-xl shadow-xl w-full h-[400px] object-cover'
-              />
+              <div
+                className='rounded-xl shadow-xl w-full h-[400px] flex items-center justify-center p-8'
+                style={{background: "linear-gradient(135deg, #1e3a8a, #0f172a)"}}>
+                <img
+                  src='/logo-large.png'
+                  alt='Special Force LLC лого'
+                  className='w-full h-full object-contain'
+                />
+              </div>
             </div>
           </div>
         </div>
