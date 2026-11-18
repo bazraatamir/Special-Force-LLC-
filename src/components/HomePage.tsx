@@ -37,38 +37,38 @@ export function HomePage({onNavigate}: HomePageProps) {
   const products = [
     {
       image: "/products/camera-bullet.webp",
-      title: "Хяналтын камер",
-      description: "Дотор, гадна орчны камер, бичлэгийн төхөөрөмж, алсын хяналт",
+      title: "Гадна IP камер",
+      description: "Ус, тоосны хамгаалалттай, шөнийн харалттай гадна камер",
+      price: "Үнэ тохиролцоно",
+    },
+    {
+      image: "/products/camera-dome.webp",
+      title: "Дотор IP камер",
+      description: "Оффис, дэлгүүр, агуулахад зориулсан дотор камер",
       price: "Үнэ тохиролцоно",
     },
     {
       image: "/products/pima-keypad.webp",
       title: "Хулгайн дохиолол",
-      description: "PIMA дохиоллын систем, хөдөлгөөн мэдрэгч, яаралтай дуудлагын товч",
+      description: "PIMA дохиоллын систем, хөдөлгөөн, хаалга, ус, чимээ мэдрэгч",
       price: "Үнэ тохиролцоно",
     },
     {
       image: "/products/ir-beam.webp",
-      title: "Периметрийн хамгаалалт",
+      title: "Периметр мэдрэгч",
       description: "Хашаа, хаалганы дагуух инфра улаан туяаны мэдрэгч",
       price: "Үнэ тохиролцоно",
     },
     {
       image: "/products/fire-panel.webp",
-      title: "Галын дохиоллын самбар",
-      description: "Мэдрэгчүүдийн дохиог хүлээн авч бүртгэх төв самбар",
+      title: "Хаяглагдсан галын дохиолол",
+      description: "Мэдрэгч бүр өөрийн хаягтай тул гал гарсан яг байршлыг самбар дээр харуулна",
       price: "Үнэ тохиролцоно",
     },
     {
       image: "/products/fire-callpoint.webp",
       title: "Галын мэдрэгч, сирен",
-      description: "Утааны мэдрэгч, гар дуудлагын товч, гэрэлт сирен",
-      price: "Үнэ тохиролцоно",
-    },
-    {
-      image: "/products/pa-speaker.webp",
-      title: "Зарлан мэдээлэх систем",
-      description: "Таазны болон хананы чанга яригч, яаралтай зарлал",
+      description: "Утаа, газ, дулаан, гал мэдрэгч, гар дуудлагын товч",
       price: "Үнэ тохиролцоно",
     },
   ];

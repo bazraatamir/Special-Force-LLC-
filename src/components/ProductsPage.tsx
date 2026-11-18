@@ -1,6 +1,13 @@
 import React from "react";
 import {useState} from "react";
-import {Phone, Filter, X} from "lucide-react";
+import {Phone, Filter, X, Flame, ShieldAlert, Camera, DoorOpen} from "lucide-react";
+
+const typeIcons: Record<string, typeof Flame> = {
+  fire: Flame,
+  alarm: ShieldAlert,
+  camera: Camera,
+  intercom: DoorOpen,
+};
 import {ImageWithFallback} from "./figma/ImageWithFallback";
 
 interface ProductsPageProps {
@@ -11,7 +18,7 @@ interface ProductsPageProps {
 // Үнэ (₮) оруулбал үнийн шүүлтүүр автоматаар гарч ирнэ.
 type Product = {
   id: number;
-  image: string;
+  image: string | null; // зураггүй бол ангиллын дүрс харагдана
   title: string;
   description: string;
   price: number | null;
@@ -27,44 +34,44 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
   const products: Product[] = [
     {
       id: 1,
-      image: "/products/camera-bullet.webp",
-      title: "Гадна орчны цилиндр камер",
-      description: "Барилгын гадна талд суурилуулах ус, тоосны хамгаалалттай камер. Инфра улаан гэрэлтүүлэгтэй тул шөнө ч бичлэг хийнэ.",
+      image: "/products/smoke-detector.webp",
+      title: "Утаа мэдрэгч",
+      description: "Өрөөнд утаа гармагц илрүүлж галын дохиоллын самбар руу дохио өгнө. Оффис, орон сууц, коридорт хамгийн өргөн хэрэглэгддэг.",
       price: null,
-      type: "camera",
-      category: "Хяналтын камер",
+      type: "fire",
+      category: "Галын дохиолол",
     },
     {
       id: 2,
-      image: "/products/camera-dome.webp",
-      title: "Дотор орчны бөмбөгөр камер",
-      description: "Таазанд суурилуулах авсаархан камер. Оффис, дэлгүүр, агуулах, коридорт тохиромжтой.",
+      image: null,
+      title: "Газ мэдрэгч",
+      description: "Байгалийн болон шингэрүүлсэн хийн алдагдлыг илрүүлж сэрэмжлүүлнэ. Гал тогоо, уурын зуух, агуулахад тохиромжтой.",
       price: null,
-      type: "camera",
-      category: "Хяналтын камер",
+      type: "fire",
+      category: "Галын дохиолол",
     },
     {
       id: 3,
-      image: "/products/pima-keypad.webp",
-      title: "PIMA KLR500 удирдлагын самбар",
-      description: "PIMA FORCE цувралын хулгайн дохиоллын график LCD дэлгэцтэй (128×64), арын гэрэлтэй удирдлагын самбар. Дохиоллыг асаах, унтраах, төлөвийг харах.",
+      image: null,
+      title: "Дулаан мэдрэгч",
+      description: "Температур огцом өсөх эсвэл тогтоосон хэмээс хэтрэхэд ажиллана. Утаа, уур ихтэй гал тогоо, гаражид утаа мэдрэгчийн оронд суурилуулна.",
       price: null,
-      type: "alarm",
-      category: "Хулгайн дохиолол",
+      type: "fire",
+      category: "Галын дохиолол",
     },
     {
       id: 4,
-      image: "/products/panic-button.webp",
-      title: "Яаралтай дуудлагын товч",
-      description: "Ширээ, лангууны доор нууцаар суурилуулах товч. Дарахад төв пульт руу шууд дохио очиж шуурхай бүлэг дуудагдана.",
+      image: null,
+      title: "Гал мэдрэгч",
+      description: "Галын дөлийн цацрагийг шууд илрүүлдэг. Өндөр таазтай агуулах, үйлдвэр, задгай талбайд тохиромжтой.",
       price: null,
-      type: "alarm",
-      category: "Хулгайн дохиолол",
+      type: "fire",
+      category: "Галын дохиолол",
     },
     {
       id: 5,
       image: "/products/ir-beam.webp",
-      title: "Периметрийн инфра улаан туяаны мэдрэгч",
+      title: "Гадна хашааны периметр мэдрэгч",
       description: "Хашаа, хаалганы дагуу үл үзэгдэх инфра улаан туяа үүсгэж, туяаг таслан нэвтрэхийг илрүүлнэ.",
       price: null,
       type: "alarm",
@@ -72,48 +79,129 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
     },
     {
       id: 6,
-      image: "/products/fire-panel.webp",
-      title: "Галын дохиоллын удирдлагын самбар",
-      description: "Утаа, дулааны мэдрэгч, гар дуудлагын товчоос ирэх дохиог хүлээн авч, сирен ажиллуулан бүртгэл хөтлөх төв самбар. Принтертэй.",
+      image: null,
+      title: "Дотор хөдөлгөөн мэдрэгч",
+      description: "Өрөөн доторх хүний хөдөлгөөнийг биеийн дулаанаар илрүүлнэ. Дохиолол асаалттай үед хөдөлгөөн гарвал төв пульт руу дохио очно.",
       price: null,
-      type: "fire",
-      category: "Галын дохиолол",
+      type: "alarm",
+      category: "Хулгайн дохиолол",
     },
     {
       id: 7,
-      image: "/products/fire-repeater.webp",
-      title: "Галын дохиоллын алсын дэлгэц",
-      description: "Үндсэн самбараас өөр байранд (харуулын байр, хүлээн авах) системийн төлөвийг харуулах нэмэлт дэлгэц.",
+      image: null,
+      title: "Ус мэдрэгч",
+      description: "Шалан дээр ус алдагдах, үерлэхийг илрүүлж эрт сэрэмжлүүлнэ. Сервер өрөө, агуулах, угаалгын өрөөнд суурилуулна.",
       price: null,
-      type: "fire",
-      category: "Галын дохиолол",
+      type: "alarm",
+      category: "Хулгайн дохиолол",
     },
     {
       id: 8,
-      image: "/products/smoke-detector.webp",
-      title: "Утааны мэдрэгч",
-      description: "Таазанд суурилуулж утаа илрүүлэхэд галын дохиоллын самбар руу шууд дохио өгнө.",
+      image: null,
+      title: "Чимээ мэдрэгч",
+      description: "Шил хагарах, хана цоолох зэрэг сэжигтэй чимээг илрүүлнэ. Дэлгүүрийн цонх, витрин, сейфийн өрөөнд тохиромжтой.",
       price: null,
-      type: "fire",
-      category: "Галын дохиолол",
+      type: "alarm",
+      category: "Хулгайн дохиолол",
     },
     {
       id: 9,
-      image: "/products/fire-callpoint.webp",
-      title: "Гар дуудлагын товч, гэрэлт сирен",
-      description: "Гал гарсан үед гараар дарж дохио өгөх товч, дуу болон гэрлээр сэрэмжлүүлэх сирентэй.",
+      image: null,
+      title: "Хаалганы зай мэдрэгч",
+      description: "Хаалга, цонх онгойход соронзон контакт салж дохио өгнө. Хамгийн энгийн бөгөөд найдвартай хамгаалалт.",
       price: null,
-      type: "fire",
-      category: "Галын дохиолол",
+      type: "alarm",
+      category: "Хулгайн дохиолол",
     },
     {
       id: 10,
-      image: "/products/pa-speaker.webp",
-      title: "Таазны чанга яригч",
-      description: "Зарлан мэдээлэх системийн таазанд суулгах чанга яригч. Яаралтай мэдээлэл, зарлал, арын хөгжим дамжуулна.",
+      image: "/products/camera-bullet.webp",
+      title: "Гадна IP камер",
+      description: "Барилгын гадна талд суурилуулах ус, тоосны хамгаалалттай сүлжээний камер. Инфра улаан гэрэлтүүлэгтэй тул шөнө ч бичлэг хийнэ.",
       price: null,
-      type: "sound",
-      category: "Зарлан мэдээлэх",
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 11,
+      image: "/products/camera-dome.webp",
+      title: "Дотор IP камер",
+      description: "Оффис, дэлгүүр, агуулах, коридорт зориулсан авсаархан сүлжээний камер.",
+      price: null,
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 12,
+      image: null,
+      title: "Гадна 4G камер",
+      description: "SIM карттай, интернет кабель шаардлагагүй гадна камер. Барилгын талбай, зуслан, хашаа зэрэг сүлжээгүй газарт тохиромжтой.",
+      price: null,
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 13,
+      image: null,
+      title: "Гадна WiFi камер",
+      description: "WiFi сүлжээгээр холбогддог гадна камер. Кабель татах шаардлага багатай тул суурилуулалт хялбар.",
+      price: null,
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 14,
+      image: null,
+      title: "Дотор 4G камер",
+      description: "SIM карттай дотор камер. Интернет холболтгүй байранд гар утсаар алсаас хянах боломж олгоно.",
+      price: null,
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 15,
+      image: null,
+      title: "Дотор WiFi камер",
+      description: "Гэр, жижиг оффист зориулсан WiFi камер. Гар утасны аппаар шууд харж, бичлэгээ үзнэ.",
+      price: null,
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 16,
+      image: null,
+      title: "PTZ камер",
+      description: "Эргэх, хазайх, томруулах боломжтой камер. Нэг камераар том талбайг бүхэлд нь хянана.",
+      price: null,
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 17,
+      image: null,
+      title: "Dome камер",
+      description: "Бөмбөгөр хэлбэрийн, гэмтээхэд хэцүү камер. Таазанд суурилуулж олон нийтийн газар, коридорт ашиглана.",
+      price: null,
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 18,
+      image: null,
+      title: "Татдаг PTZ камер",
+      description: "Хол зайд хүчтэй томруулдаг PTZ камер. Зогсоол, талбай, барилгын периметрийг алсаас нарийвчлан хянана.",
+      price: null,
+      type: "camera",
+      category: "IP камер",
+    },
+    {
+      id: 19,
+      image: null,
+      title: "Домофон",
+      description: "Орон сууц, оффисын орцны видео болон аудио домофон. Зочныг харж ярилцаад хаалгыг алсаас нээнэ.",
+      price: null,
+      type: "intercom",
+      category: "Домофон",
     },
   ];
 
@@ -181,10 +269,10 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
                   <div className='space-y-2'>
                     {[
                       {value: "all", label: "Бүх бүтээгдэхүүн"},
-                      {value: "camera", label: "Хяналтын камер"},
-                      {value: "alarm", label: "Хулгайн дохиолол"},
                       {value: "fire", label: "Галын дохиолол"},
-                      {value: "sound", label: "Зарлан мэдээлэх"},
+                      {value: "alarm", label: "Хулгайн дохиолол"},
+                      {value: "camera", label: "IP камер"},
+                      {value: "intercom", label: "Домофон"},
                     ].map((type) => (
                       <label
                         key={type.value}
@@ -259,11 +347,24 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
                   <div
                     key={product.id}
                     className='bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow'>
-                    <ImageWithFallback
-                      src={product.image}
-                      alt={product.title}
-                      className='w-full h-48 object-cover'
-                    />
+                    {product.image ? (
+                      <ImageWithFallback
+                        src={product.image}
+                        alt={product.title}
+                        className='w-full h-48 object-cover'
+                      />
+                    ) : (
+                      (() => {
+                        const Icon = typeIcons[product.type] ?? Camera;
+                        return (
+                          <div
+                            className='w-full h-48 flex items-center justify-center'
+                            style={{background: "linear-gradient(135deg, #1e3a8a, #0f172a)"}}>
+                            <Icon className='h-16 w-16' color='rgba(255,255,255,0.85)' strokeWidth={1.5} />
+                          </div>
+                        );
+                      })()
+                    )}
                     <div className='p-6'>
                       <div className='text-xs text-gray-500 mb-1'>
                         {product.category}
