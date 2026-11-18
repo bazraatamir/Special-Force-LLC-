@@ -104,10 +104,9 @@ export function AboutPage({onNavigate}: AboutPageProps) {
             </div>
             <div className='relative'>
               <div
-                className='rounded-xl shadow-xl w-full h-[400px] flex items-center justify-center p-8'
-                style={{background: "linear-gradient(135deg, #1e3a8a, #0f172a)"}}>
+                className='rounded-xl shadow-xl w-full h-[400px] flex items-center justify-center p-8 bg-white border border-gray-100'>
                 <img
-                  src='/logo-large.png'
+                  src='/logo-color.webp'
                   alt='Special Force LLC лого'
                   className='w-full h-full object-contain'
                 />
