@@ -25,9 +25,11 @@ export function Navbar({currentPage, onNavigate}: NavbarProps) {
           <div
             className='flex items-center gap-3 cursor-pointer'
             onClick={() => onNavigate("home")}>
-            <div className='rounded-lg p-2' style={{width:"25%"}}>
-              <img src="/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="Special Force LLC" className="w-10 h-10 object-contain" style={{objectFit:"contain", width:"100%", height:"100%"}} />
-            </div>
+            <img
+              src='/logo-large.png'
+              alt='Special Force LLC'
+              style={{height: 56, width: "auto", objectFit: "contain"}}
+            />
            
           </div>
 
@@ -37,6 +39,7 @@ export function Navbar({currentPage, onNavigate}: NavbarProps) {
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
+                style={{whiteSpace: "nowrap"}}
                 className={`px-4 py-2 rounded-md transition-colors ${
                   currentPage === item.id
                     ? "bg-white/10 text-white"
@@ -47,6 +50,7 @@ export function Navbar({currentPage, onNavigate}: NavbarProps) {
             ))}
             <button
               onClick={() => onNavigate("contact")}
+              style={{whiteSpace: "nowrap"}}
               className='ml-4 bg-white text-[#1e3a8a] px-6 py-2 rounded-md hover:bg-blue-50 transition-colors'>
               Холбоо барих
             </button>

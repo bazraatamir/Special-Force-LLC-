@@ -346,7 +346,8 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
                 {filteredProducts.map((product) => (
                   <div
                     key={product.id}
-                    className='bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow'>
+                    className='bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow'
+                    style={{display: "flex", flexDirection: "column"}}>
                     {product.image ? (
                       <ImageWithFallback
                         src={product.image}
@@ -365,21 +366,22 @@ export function ProductsPage({onNavigate}: ProductsPageProps) {
                         );
                       })()
                     )}
-                    <div className='p-6'>
+                    <div className='p-6' style={{display: "flex", flexDirection: "column", flex: 1}}>
                       <div className='text-xs text-gray-500 mb-1'>
                         {product.category}
                       </div>
                       <h3 className='text-lg text-gray-900 mb-2'>
                         {product.title}
                       </h3>
-                      <p className='text-sm text-gray-600 mb-4'>
+                      <p className='text-sm text-gray-600 mb-4' style={{flex: 1}}>
                         {product.description}
                       </p>
-                      <div className='flex items-center justify-between'>
+                      <div className='flex items-center justify-between gap-3'>
                         <span
                           className={`${
                             product.price !== null ? "text-2xl" : "text-lg"
-                          } text-[#1e3a8a]`}>
+                          } text-[#1e3a8a]`}
+                          style={{whiteSpace: "nowrap"}}>
                           {product.price !== null
                             ? `${product.price.toLocaleString("en-US")}₮`
                             : "Үнэ тохиролцоно"}

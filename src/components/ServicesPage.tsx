@@ -185,10 +185,7 @@ export function ServicesPage({onNavigate}: ServicesPageProps) {
             {/* Basic Package */}
             <div className='bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-2 border-gray-200'>
               <h3 className='text-2xl text-gray-900 mb-2'>Үндсэн</h3>
-              <div className='text-4xl text-[#1e3a8a] mb-6'>
-                Тохиролцоно
-                <span className='text-lg text-gray-500'> /нэг удаа</span>
-              </div>
+              <div className='text-2xl text-[#1e3a8a] mb-6'>Үнэ тохиролцоно</div>
               <ul className='space-y-3 mb-8'>
                 <li className='flex items-start gap-3'>
                   <CheckCircle className='h-5 w-5 text-green-500 shrink-0 mt-0.5' />
@@ -224,10 +221,7 @@ export function ServicesPage({onNavigate}: ServicesPageProps) {
                 Хамгийн эрэлттэй
               </div>
               <h3 className='text-2xl text-gray-900 mb-2'>Мэргэжлийн</h3>
-              <div className='text-4xl text-[#1e3a8a] mb-6'>
-                Тохиролцоно
-                <span className='text-lg text-gray-500'> /нэг удаа</span>
-              </div>
+              <div className='text-2xl text-[#1e3a8a] mb-6'>Үнэ тохиролцоно</div>
               <ul className='space-y-3 mb-8'>
                 <li className='flex items-start gap-3'>
                   <CheckCircle className='h-5 w-5 text-green-500 shrink-0 mt-0.5' />
@@ -264,10 +258,7 @@ export function ServicesPage({onNavigate}: ServicesPageProps) {
             {/* Enterprise Package */}
             <div className='bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-shadow border-2 border-gray-200'>
               <h3 className='text-2xl text-gray-900 mb-2'>Байгууллага</h3>
-              <div className='text-4xl text-[#1e3a8a] mb-6'>
-                Захиалгат
-                <span className='text-lg text-gray-500'> /үнийн санал</span>
-              </div>
+              <div className='text-2xl text-[#1e3a8a] mb-6'>Захиалгат үнийн санал</div>
               <ul className='space-y-3 mb-8'>
                 <li className='flex items-start gap-3'>
                   <CheckCircle className='h-5 w-5 text-green-500 shrink-0 mt-0.5' />

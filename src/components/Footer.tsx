@@ -13,13 +13,11 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Company Info */}
           <div className="col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className=" rounded-lg p-2">
-                <img src="/Gemini_Generated_Image_vq24xjvq24xjvq24-Picsart-BackgroundRemover.png" alt="Special Force LLC" />
-              </div>
+              <img src="/logo-large.png" alt="Special Force LLC" style={{height: 96, width: "auto"}} />
               
             </div>
             <p className="text-sm text-gray-400">
-              Мэргэжлийн хяналтын камерын суурилуулалт ба худалдаа. Гэр ахуй, бизнесийн зориулалттай найдвартай, хурдан, боломжийн үнэтэй аюулгүй байдлын шийдлүүд.
+              Харуул хамгаалалт, галын болон хулгайн дохиолол, хяналтын камерын цогц шийдэл. Гэр ахуй, байгууллагад зориулсан найдвартай, шуурхай үйлчилгээ.
             </p>
           </div>
 
@@ -50,11 +48,12 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <h3 className="text-white mb-4">Бидний Үйлчилгээ</h3>
             <ul className="space-y-2 text-sm">
-              <li>Камерын суурилуулалт</li>
+              <li>Харуул хамгаалалт</li>
+              <li>Хулгайн дохиолол</li>
+              <li>Галын дохиолол</li>
+              <li>IP камер суурилуулалт</li>
+              <li>Домофон</li>
               <li>Засвар үйлчилгээ</li>
-              <li>24/7 хяналт</li>
-              <li>Дохиолол хамгаалалт</li>
-              <li>Системийн шинэчлэлт</li>
             </ul>
           </div>
 

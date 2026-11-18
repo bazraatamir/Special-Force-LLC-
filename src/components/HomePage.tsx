@@ -73,15 +73,6 @@ export function HomePage({onNavigate}: HomePageProps) {
     },
   ];
 
-  const partners = [
-    {name: "Hikvision", logo: "H"},
-    {name: "Dahua", logo: "D"},
-    {name: "Axis", logo: "A"},
-    {name: "Bosch", logo: "B"},
-    {name: "Hanwha", logo: "H"},
-    {name: "Uniview", logo: "U"},
-  ];
-
   return (
     <div className='pt-20'>
       {/* Hero Section */}
@@ -98,13 +89,15 @@ export function HomePage({onNavigate}: HomePageProps) {
               <div className='flex flex-wrap gap-4'>
                 <button 
                   onClick={() => onNavigate("contact")}
-                  className='bg-white text-[#1e3a8a] px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center gap-2'>
+                  className='bg-white text-[#1e3a8a] px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center justify-center gap-2'
+                  style={{minWidth: 220}}>
                   Холбоо барих
                   <ArrowRight className='h-5 w-5' />
                 </button>
                 <button
                   onClick={() => onNavigate("products")}
-                  className='bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-colors border border-white/20'>
+                  className='bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-lg hover:bg-white/20 transition-colors border border-white/20'
+                  style={{minWidth: 220}}>
                   Бүтээгдэхүүн үзэх
                 </button>
               </div>
@@ -158,17 +151,18 @@ export function HomePage({onNavigate}: HomePageProps) {
             {products.map((product, index) => (
               <div
                 key={index}
-                className='bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow'>
+                className='bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow'
+                    style={{display: "flex", flexDirection: "column"}}>
                 <ImageWithFallback
                   src={product.image}
                   alt={product.title}
                   className='w-full h-48 object-cover'
                 />
-                <div className='p-6'>
+                <div className='p-6' style={{display: "flex", flexDirection: "column", flex: 1}}>
                   <h3 className='text-xl text-gray-900 mb-2'>
                     {product.title}
                   </h3>
-                  <p className='text-gray-600 text-sm mb-4'>
+                  <p className='text-gray-600 text-sm mb-4' style={{flex: 1}}>
                     {product.description}
                   </p>
                   <div className='flex items-center justify-between'>
@@ -193,30 +187,6 @@ export function HomePage({onNavigate}: HomePageProps) {
               Бүгдийг үзэх
               <ArrowRight className='h-5 w-5' />
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section className='py-16 bg-white'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='text-center mb-12'>
-            <h2 className='text-3xl text-gray-900 mb-4'>Хамтарч ажилсан байгууллагууд</h2>
-            <p className='text-lg text-gray-600'>
-              Бид бүтээгдэхүүн, үйлчилгээний тал дээр хамтарч буй мэргэжлийн түвшинд суурилсан компаниуд
-            </p>
-          </div>
-
-          <div className='flex flex-wrap justify-center items-center gap-8'>
-            {partners.map((partner, index) => (
-              <div
-                key={index}
-                className='bg-gray-50 border border-gray-200 rounded-lg px-8 py-6 hover:shadow-md transition-shadow'>
-                <div className='w-24 h-12 flex items-center justify-center'>
-                  <div className='text-2xl text-gray-400'>{partner.logo}</div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
